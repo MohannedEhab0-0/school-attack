@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Meta & SEO -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>International School of Cairo | Nurturing Global Citizens</title>
+  <meta name="description" content="A leading international school in Cairo offering IB, IGCSE, and National programs from Kindergarten to High School. Safe, diverse, and innovative learning." />
+  <link rel="canonical" href="https://www.example-school-cairo.edu/" />
+  <meta property="og:title" content="International School of Cairo" />
+  <meta property="og:description" content="A leading international school in Cairo offering IB, IGCSE, and National programs from Kindergarten to High School." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.example-school-cairo.edu/" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=International+School+of+Cairo" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0B3D91',
+            gold: '#D4AF37'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'ui-sans-serif', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial'],
+            ar: ['Almarai', 'Inter', 'system-ui']
+          },
+          boxShadow: {
+            glow: '0 10px 30px rgba(11,61,145,0.15)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth fade-in for sections */
+    .route { display: none; opacity: 0; transform: translateY(8px); transition: opacity .3s ease, transform .3s ease; }
+    .route.active { display: block; opacity: 1; transform: translateY(0); }
+    /* Lightbox backdrop */
+    .backdrop { background: rgba(6, 18, 43, 0.6); }
+    /* RTL helper */
+    html[dir="rtl"] .rtl-hidden { display: none; }
+    html[dir="ltr"] .ltr-hidden { display: none; }
+    /* Focus outlines for accessibility */
+    :focus-visible { outline: 3px solid #D4AF37; outline-offset: 2px; }
+    /* Hide scrollbars in carousels (while preserving accessibility) */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+
+  <!-- Schema.org JSON-LD: School -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "School",
+    "name": "International School of Cairo",
+    "url": "https://www.example-school-cairo.edu/",
+    "logo": "https://via.placeholder.com/512.png?text=ISC",
+    "description": "A leading international school in Cairo offering IB, IGCSE, and National programs from Kindergarten to High School.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Nile Avenue, Maadi",
+      "addressLocality": "Cairo",
+      "addressCountry": "EG",
+      "postalCode": "11728"
+    },
+    "telephone": "+20 2 1234 5678",
+    "email": "admissions@example-school-cairo.edu",
+    "foundingDate": "1998",
+    "sameAs": [
+      "https://www.facebook.com/",
+      "https://www.instagram.com/"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-gradient-to-b from-navy/5 via-white to-white text-slate-800 font-sans selection:bg-gold/30 selection:text-navy">
+  <!-- Top Bar -->
+  <div class="bg-navy text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <span aria-label="Phone">?? +20 2 1234 5678</span>
+        <span aria-label="Email">?? admissions@example-school-cairo.edu</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="langToggle" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 rounded-md transition" aria-label="Language Toggle">AR</button>
+        <button id="increaseFont" class="px-2 py-1 bg-white/10 hover:bg-white/20 rounded-md" aria-label="Increase text size">A+</button>
+        <button id="decreaseFont" class="px-2 py-1 bg-white/10 hover:bg-white/20 rounded-md" aria-label="Decrease text size">A?</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3" aria-label="Home">
+        <div class="w-10 h-10 rounded-md bg-navy grid place-items-center text-white font-bold">ISC</div>
+        <div>
+          <p class="font-extrabold text-navy leading-tight" data-en="International School of Cairo" data-ar="??????? ??????? ????????">International School of Cairo</p>
+          <p class="text-xs text-slate-500" data-en="Since 1998" data-ar="??? ????">Since 1998</p>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-5">
+        <a class="navlink" href="#home" data-en="Home" data-ar="????????">Home</a>
+        <a class="navlink" href="#about" data-en="About" data-ar="?? ???">About</a>
+        <a class="navlink" href="#academics" data-en="Academics" data-ar="???????????">Academics</a>
+        <a class="navlink" href="#admissions" data-en="Admissions" data-ar="???????">Admissions</a>
+        <a class="navlink" href="#faculty" data-en="Faculty" data-ar="????????">Faculty</a>
+        <a class="navlink" href="#studentlife" data-en="Student Life" data-ar="???? ??????">Student Life</a>
+        <a class="navlink" href="#news" data-en="News & Events" data-ar="??????? ??????????">News & Events</a>
+        <a class="navlink" href="#gallery" data-en="Gallery" data-ar="??????">Gallery</a>
+        <a class="navlink" href="#contact" data-en="Contact" data-ar="???? ???">Contact</a>
+        <a class="navlink" href="#faq" data-en="FAQ" data-ar="??????? ???????">FAQ</a>
+        <a class="navlink" href="#privacy" data-en="Privacy" data-ar="????????">Privacy</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden p-2 rounded-md border border-slate-300" aria-label="Open Menu">?</button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white">
+      <div class="px-4 py-3 grid grid-cols-2 gap-3">
+        <a class="btn-secondary" href="#home" data-en="Home" data-ar="????????">Home</a>
+        <a class="btn-secondary" href="#about" data-en="About" data-ar="?? ???">About</a>
+        <a class="btn-secondary" href="#academics" data-en="Academics" data-ar="???????????">Academics</a>
+        <a class="btn-secondary" href="#admissions" data-en="Admissions" data-ar="???????">Admissions</a>
+        <a class="btn-secondary" href="#faculty" data-en="Faculty" data-ar="????????">Faculty</a>
+        <a class="btn-secondary" href="#studentlife" data-en="Student Life" data-ar="???? ??????">Student Life</a>
+        <a class="btn-secondary" href="#news" data-en="News & Events" data-ar="??????? ??????????">News & Events</a>
+        <a class="btn-secondary" href="#gallery" data-en="Gallery" data-ar="??????">Gallery</a>
+        <a class="btn-secondary" href="#contact" data-en="Contact" data-ar="???? ???">Contact</a>
+        <a class="btn-secondary" href="#faq" data-en="FAQ" data-ar="??????? ???????">FAQ</a>
+        <a class="btn-secondary" href="#privacy" data-en="Privacy" data-ar="????????">Privacy</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero with Variant Switcher -->
+  <main id="home" class="route active">
+    <section class="relative overflow-hidden">
+      <!-- Visual hero background (SVG pattern to avoid external images) -->
+      <div class="absolute inset-0 -z-10">
+        <svg class="w-full h-full" role="img" aria-label="Campus abstract illustration" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0B3D91" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#0B3D91" stop-opacity=".6"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#D4AF37" stop-opacity=".2"/>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#g1)" />
+          <circle cx="20%" cy="30%" r="200" fill="url(#g2)"/>
+          <circle cx="80%" cy="70%" r="260" fill="url(#g2)"/>
+        </svg>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 py-20 sm:py-24">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="text-white">
+            <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm mb-4">
+              <span>??</span><span data-en="IB • IGCSE • National" data-ar="?????????? ??????? • IGCSE • ?????? ??????">IB • IGCSE • National</span>
+            </div>
+            <h1 id="heroTitle" class="text-4xl sm:text-5xl font-extrabold leading-tight">Nurturing Global Citizens</h1>
+            <p id="heroSub" class="mt-4 text-lg sm:text-xl text-white/90 max-w-xl">A world-class international school in Cairo where curiosity, character, and excellence thrive.</p>
+
+            <!-- Hero variant choices -->
+            <div class="mt-5 flex flex-wrap gap-2">
+              <button class="chip" data-variant="1">Headline 1</button>
+              <button class="chip" data-variant="2">Headline 2</button>
+              <button class="chip" data-variant="3">Headline 3</button>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#admissions" class="btn-primary" data-en="Apply Now" data-ar="???? ????">Apply Now</a>
+              <button id="bookTourBtn" class="btn-gold" data-en="Book a Tour" data-ar="???? ????">Book a Tour</button>
+              <a href="#contact" class="btn-secondary text-white border-white/60 hover:bg-white/10" data-en="Contact Us" data-ar="???? ???">Contact Us</a>
+            </div>
+
+            <div class="mt-10 grid grid-cols-3 gap-6 max-w-2xl">
+              <div class="stat">
+                <span class="stat-number">+2,000</span>
+                <span class="stat-label" data-en="Students" data-ar="??????">Students</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">25</span>
+                <span class="stat-label" data-en="Years" data-ar="?????">Years</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">40+</span>
+                <span class="stat-label" data-en="Nationalities" data-ar="??????">Nationalities</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Illustration: campus / classrooms / activities (SVG carousel) -->
+          <div>
+            <div class="rounded-2xl bg-white/10 p-2 shadow-glow">
+              <div class="relative rounded-xl overflow-hidden bg-white">
+                <div id="heroCarousel" class="w-full h-72 sm:h-96">
+                  <!-- Slides (SVG scenes) -->
+                  <div class="hero-slide" aria-label="Campus view">
+                    <svg class="w-full h-full" viewBox="0 0 800 500" role="img" aria-label="Modern campus buildings under the sun" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="100%" height="100%" fill="#eef3ff"/>
+                      <circle cx="680" cy="90" r="40" fill="#D4AF37"/>
+                      <rect x="60" y="160" width="200" height="220" fill="#0B3D91" rx="8"/>
+                      <rect x="100" y="190" width="120" height="20" fill="#ffffff" opacity=".9"/>
+                      <rect x="300" y="140" width="180" height="240" fill="#264fa8" rx="8"/>
+                      <rect x="520" y="190" width="220" height="190" fill="#3663c4" rx="8"/>
+                      <rect x="0" y="380" width="800" height="120" fill="#cfe0ff"/>
+                      <g fill="#6aa84f">
+                        <circle cx="160" cy="380" r="35"/>
+                        <circle cx="340" cy="380" r="28"/>
+                        <circle cx="520" cy="380" r="32"/>
+                        <circle cx="680" cy="380" r="38"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="hero-slide hidden" aria-label="Classroom learning">
+                    <svg class="w-full h-full" viewBox="0 0 800 500" role="img" aria-label="Bright classroom with desks and board" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="100%" height="100%" fill="#fff7e6"/>
+                      <rect x="80" y="80" width="640" height="60" fill="#0B3D91" rx="6"/>
+                      <rect x="120" y="180" width="180" height="120" fill="#ffe599" rx="8"/>
+                      <rect x="320" y="180" width="180" height="120" fill="#ffd966" rx="8"/>
+                      <rect x="520" y="180" width="180" height="120" fill="#f6b26b" rx="8"/>
+                      <rect x="120" y="320" width="220" height="40" fill="#cfe2f3" rx="6"/>
+                      <rect x="460" y="320" width="240" height="40" fill="#cfe2f3" rx="6"/>
+                    </svg>
+                  </div>
+                  <div class="hero-slide hidden" aria-label="Student activities">
+                    <svg class="w-full h-full" viewBox="0 0 800 500" role="img" aria-label="Students playing sports and arts" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="100%" height="100%" fill="#e8fff3"/>
+                      <circle cx="140" cy="200" r="50" fill="#0B3D91"/>
+                      <rect x="240" y="160" width="120" height="120" fill="#D4AF37" rx="12"/>
+                      <circle cx="420" cy="220" r="60" fill="#7fbf7f"/>
+                      <rect x="510" y="150" width="230" height="160" fill="#b3d9ff" rx="16"/>
+                      <rect x="120" y="360" width="560" height="20" fill="#a3cfa3" />
+                    </svg>
+                  </div>
+                </div>
+                <div class="absolute bottom-3 right-3 flex gap-2">
+                  <button class="carousel-dot active-dot" aria-label="Slide 1"></button>
+                  <button class="carousel-dot" aria-label="Slide 2"></button>
+                  <button class="carousel-dot" aria-label="Slide 3"></button>
+                </div>
+              </div>
+            </div>
+            <p class="mt-3 text-white/80 text-sm">Note: Using artistic SVG scenes as image placeholders. Provide your campus photos to replace.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="max-w-7xl mx-auto px-4 py-16">
+      <h2 class="section-title" data-en="Why Families Choose Us" data-ar="????? ??????? ???????">Why Families Choose Us</h2>
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <div class="card">
+          <div class="icon">??</div>
+          <h3 class="card-title" data-en="Global Curriculum" data-ar="???? ?????">Global Curriculum</h3>
+          <p data-en="IB, IGCSE, and National tracks with rigorous standards and real?world learning." data-ar="?????? ?????????? ??????? ? IGCSE ??????? ?????? ??????? ????? ????? ?????.">IB, IGCSE, and National tracks with rigorous standards and real?world learning.</p>
+        </div>
+        <div class="card">
+          <div class="icon">?????</div>
+          <h3 class="card-title" data-en="Expert Faculty" data-ar="???? ????? ??????">Expert Faculty</h3>
+          <p data-en="Certified, caring educators who personalize instruction and inspire curiosity." data-ar="?????? ??????? ?????? ???????? ?????? ??????? ??????.">Certified, caring educators who personalize instruction and inspire curiosity.</p>
+        </div>
+        <div class="card">
+          <div class="icon">???</div>
+          <h3 class="card-title" data-en="Safe & Inclusive" data-ar="???? ???? ??????">Safe & Inclusive</h3>
+          <p data-en="A diverse community where every child is known, supported, and encouraged." data-ar="????? ????? ????? ??? ?? ???? ?????? ??????.">A diverse community where every child is known, supported, and encouraged.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="bg-slate-50 py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="section-title" data-en="Latest News" data-ar="???? ???????">Latest News</h2>
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+          <article class="news-card">
+            <h3 class="card-title">IB Results Reach New Record</h3>
+            <p class="text-slate-600">Our graduating class celebrated outstanding achievements with an average score of 36.</p>
+            <time class="text-xs text-slate-500">June 2, 2025</time>
+          </article>
+          <article class="news-card">
+            <h3 class="card-title">New STEAM Lab Opens</h3>
+            <p class="text-slate-600">Students now enjoy a dedicated space for robotics, coding, and design thinking.</p>
+            <time class="text-xs text-slate-500">May 18, 2025</time>
+          </article>
+          <article class="news-card">
+            <h3 class="card-title">Sports Day Highlights</h3>
+            <p class="text-slate-600">A joyful community event celebrating teamwork, fitness, and school spirit.</p>
+            <time class="text-xs text-slate-500">April 27, 2025</time>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="max-w-7xl mx-auto px-4 py-16">
+      <h2 class="section-title" data-en="What Parents Say" data-ar="???? ???? ???????">What Parents Say</h2>
+      <div class="mt-8 grid lg:grid-cols-3 gap-6">
+        <blockquote class="testimonial">
+          <p>Our daughter is thriving—confident, curious, and supported by caring teachers.</p>
+          <footer>— Parent of Grade 5 student</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p>The school blends academics with character education beautifully.</p>
+          <footer>— Parent of Grade 9 student</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p>We love the international community and safe environment.</p>
+          <footer>— Parent of KG2 student</footer>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <!-- About -->
+  <section id="about" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title" data-en="About Our School" data-ar="?? ???????">About Our School</h1>
+      <div class="grid lg:grid-cols-2 gap-10 mt-8">
+        <div class="space-y-6">
+          <div>
+            <h2 class="h2" data-en="Mission" data-ar="???????">Mission</h2>
+            <p data-en="We empower every learner to achieve academic excellence, lead with integrity, and shape a better world." data-ar="???? ?? ????? ?? ????? ?????? ????????? ???????? ?????? ???? ???? ????.">We empower every learner to achieve academic excellence, lead with integrity, and shape a better world.</p>
+          </div>
+          <div>
+            <h2 class="h2" data-en="Vision" data-ar="??????">Vision</h2>
+            <p data-en="To be Cairo’s most trusted international school community—innovative, inclusive, and future-ready." data-ar="?? ???? ??????? ??????? ?????? ?????? ??? ?? ??????? — ??????? ??????? ???????? ????????.">To be Cairo’s most trusted international school community—innovative, inclusive, and future-ready.</p>
+          </div>
+          <div>
+            <h2 class="h2" data-en="History" data-ar="???????">History</h2>
+            <p data-en="Founded in 1998, our school has grown from 120 students to a vibrant community of over 2,000 learners from 40+ nationalities." data-ar="????? ??? 1998 ???? ?? 120 ?????? ??? ????? ???? ??? ???? ?? 2000 ????? ?? ???? ?? 40 ?????.">Founded in 1998, our school has grown from 120 students to a vibrant community of over 2,000 learners from 40+ nationalities.</p>
+          </div>
+          <div>
+            <h2 class="h2" data-en="Accreditations" data-ar="??????????">Accreditations</h2>
+            <ul class="list-disc pl-6 text-slate-700">
+              <li data-en="Council of International Schools (CIS)" data-ar="???? ??????? ??????? (CIS)">Council of International Schools (CIS)</li>
+              <li data-en="IB World School (PYP, MYP, DP)" data-ar="????? ?????? ???IB">IB World School (PYP, MYP, DP)</li>
+              <li data-en="Cambridge Assessment International Education" data-ar="??????? ??????? ??????">Cambridge Assessment International Education</li>
+              <li data-en="Egyptian Ministry of Education" data-ar="????? ??????? ???????? ???????">Egyptian Ministry of Education</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="h2" data-en="What Makes Us Unique" data-ar="?? ??????">What Makes Us Unique</h2>
+            <ul class="list-disc pl-6 text-slate-700">
+              <li data-en="Holistic education: academics, arts, athletics, service" data-ar="????? ????: ??????????? ??????? ???????? ???????">Holistic education: academics, arts, athletics, service</li>
+              <li data-en="Personalized pathways and counseling" data-ar="?????? ????? ??????">Personalized pathways and counseling</li>
+              <li data-en="Wellbeing and safeguarding at the center" data-ar="??????? ??????? ???? ?????">Wellbeing and safeguarding at the center</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
+          <h3 class="card-title mb-4" data-en="At a Glance" data-ar="???? ????">At a Glance</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-lg bg-slate-50">
+              <p class="font-bold text-navy">Student:Teacher</p>
+              <p class="text-2xl font-extrabold">9:1</p>
+            </div>
+            <div class="p-4 rounded-lg bg-slate-50">
+              <p class="font-bold text-navy">Average IB Score</p>
+              <p class="text-2xl font-extrabold">36</p>
+            </div>
+            <div class="p-4 rounded-lg bg-slate-50">
+              <p class="font-bold text-navy">After?School Clubs</p>
+              <p class="text-2xl font-extrabold">50+</p>
+            </div>
+            <div class="p-4 rounded-lg bg-slate-50">
+              <p class="font-bold text-navy">University Acceptance</p>
+              <p class="text-2xl font-extrabold">98%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academics -->
+  <section id="academics" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title" data-en="Academics" data-ar="???????????">Academics</h1>
+      <p class="mt-2 text-slate-600" data-en="Challenging and supportive programs for every stage." data-ar="????? ????? ?????? ??? ?????.">Challenging and supportive programs for every stage.</p>
+
+      <div class="mt-8 grid lg:grid-cols-3 gap-6">
+        <div class="card">
+          <h3 class="card-title">IB Programme</h3>
+          <p>PYP, MYP, and DP with inquiry-driven learning and global competencies.</p>
+          <button class="btn-link mt-2" onclick="downloadSample('IB Curriculum Outline')">Download Syllabus (PDF)</button>
+        </div>
+        <div class="card">
+          <h3 class="card-title">IGCSE</h3>
+          <p>Cambridge pathway emphasizing depth, critical thinking, and subject mastery.</p>
+          <button class="btn-link mt-2" onclick="downloadSample('IGCSE Syllabus Overview')">Download Syllabus (PDF)</button>
+        </div>
+        <div class="card">
+          <h3 class="card-title">National</h3>
+          <p>Egyptian National curriculum enriched with bilingual literacy and STEM.</p>
+          <button class="btn-link mt-2" onclick="downloadSample('National Curriculum Summary')">Download Syllabus (PDF)</button>
+        </div>
+      </div>
+
+      <h2 class="h2 mt-12">Grade Levels</h2>
+      <div class="mt-6 grid md:grid-cols-4 gap-6">
+        <div class="card"><h3 class="card-title">Kindergarten</h3><p>Play-based foundations: curiosity, language, and wellbeing.</p></div>
+        <div class="card"><h3 class="card-title">Primary</h3><p>Core literacy, numeracy, and projects across disciplines.</p></div>
+        <div class="card"><h3 class="card-title">Middle School</h3><p>Exploration, teamwork, and growing independence.</p></div>
+        <div class="card"><h3 class="card-title">High School</h3><p>Rigorous pathways and university counseling.</p></div>
+      </div>
+
+      <h2 class="h2 mt-12">Learning Outcomes</h2>
+      <ul class="list-disc pl-6 text-slate-700">
+        <li>Critical Thinkers and Problem Solvers</li>
+        <li>Effective Communicators and Collaborators</li>
+        <li>Ethical Leaders and Responsible Citizens</li>
+        <li>Creative and Resilient Learners</li>
+      </ul>
+      <p class="text-xs text-slate-500 mt-4">Syllabus downloads are sample demo files. Replace with your PDFs when available.</p>
+    </div>
+  </section>
+
+  <!-- Admissions -->
+  <section id="admissions" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title" data-en="Admissions" data-ar="???????">Admissions</h1>
+      <div class="grid lg:grid-cols-2 gap-10 mt-8">
+        <div>
+          <h2 class="h2">How to Apply</h2>
+          <ol class="list-decimal pl-6 space-y-2 text-slate-700">
+            <li>Submit the online application form</li>
+            <li>Provide required documents</li>
+            <li>Assessment and interview</li>
+            <li>Offer and enrollment</li>
+          </ol>
+
+          <div class="mt-8 rounded-xl border border-slate-200 p-6 bg-slate-50">
+            <h3 class="card-title">Required Documents</h3>
+            <ul class="list-disc pl-6 text-slate-700">
+              <li>Student passport/ID (copy)</li>
+              <li>Previous school reports</li>
+              <li>Birth certificate</li>
+              <li>Vaccination record</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Application Form (Fully working demo – local only) -->
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
+          <h2 class="h2 mb-4">Online Application Form (Demo)</h2>
+          <form id="applicationForm" novalidate>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="label">Parent Name</label>
+                <input class="input" name="parentName" required placeholder="Full name" />
+              </div>
+              <div>
+                <label class="label">Phone</label>
+                <input class="input" name="phone" required placeholder="+20 ..." />
+              </div>
+              <div>
+                <label class="label">Email</label>
+                <input class="input" type="email" name="email" required placeholder="name@email.com" />
+              </div>
+              <div>
+                <label class="label">Student Name</label>
+                <input class="input" name="studentName" required placeholder="Full name" />
+              </div>
+              <div>
+                <label class="label">Date of Birth</label>
+                <input class="input" type="date" name="dob" required />
+              </div>
+              <div>
+                <label class="label">Grade Applying For</label>
+                <select class="input" name="grade" required>
+                  <option value="">Select...</option>
+                  <option>KG1</option><option>KG2</option>
+                  <option>Grade 1</option><option>Grade 2</option><option>Grade 3</option>
+                  <option>Grade 4</option><option>Grade 5</option><option>Grade 6</option>
+                  <option>Grade 7</option><option>Grade 8</option><option>Grade 9</option>
+                  <option>Grade 10</option><option>Grade 11</option><option>Grade 12</option>
+                </select>
+              </div>
+              <div class="md:col-span-2">
+                <label class="label">Upload Files (PDF/JPG/PNG)</label>
+                <input class="input" type="file" name="files" multiple accept=".pdf,.jpg,.jpeg,.png" />
+                <p class="text-xs text-slate-500 mt-1">Files remain on your device in this demo.</p>
+              </div>
+            </div>
+            <div class="mt-5 flex items-center gap-3">
+              <button class="btn-primary" type="submit">Submit Application</button>
+              <span id="applicationStatus" class="text-sm text-slate-600" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty -->
+  <section id="faculty" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title">Faculty</h1>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        <!-- Teacher Card with SVG avatar -->
+        <div class="teacher-card">
+          <div class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Teacher photo placeholder">
+              <rect width="100" height="100" rx="12" fill="#0B3D91"/>
+              <circle cx="50" cy="40" r="18" fill="#D4AF37"/>
+              <rect x="25" y="62" width="50" height="26" rx="8" fill="#D4AF37"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-navy text-lg">Ms. Sara Youssef</h3>
+            <p class="text-slate-600">Head of Primary • PGCE</p>
+            <p class="text-sm text-slate-600 mt-2">15 years of experience in inquiry-based learning and literacy.</p>
+          </div>
+        </div>
+        <div class="teacher-card">
+          <div class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="12" fill="#0B3D91"/><circle cx="50" cy="40" r="18" fill="#D4AF37"/><rect x="25" y="62" width="50" height="26" rx="8" fill="#D4AF37"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-navy text-lg">Mr. Omar Khaled</h3>
+            <p class="text-slate-600">IB DP Physics • M.Ed</p>
+            <p class="text-sm text-slate-600 mt-2">Passionate about labs, data, and student-led investigations.</p>
+          </div>
+        </div>
+        <div class="teacher-card">
+          <div class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="12" fill="#0B3D91"/><circle cx="50" cy="40" r="18" fill="#D4AF37"/><rect x="25" y="62" width="50" height="26" rx="8" fill="#D4AF37"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-navy text-lg">Mrs. Laila Hassan</h3>
+            <p class="text-slate-600">IGCSE English • CELTA</p>
+            <p class="text-sm text-slate-600 mt-2">Differentiated instruction and debate coaching.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Student Life -->
+  <section id="studentlife" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title" data-en="Student Life" data-ar="???? ??????">Student Life</h1>
+      <div class="grid lg:grid-cols-2 gap-10 mt-8">
+        <div class="space-y-6">
+          <div>
+            <h2 class="h2">Activities & Clubs</h2>
+            <p>From Robotics and Model UN to Choir and Fine Arts, there is something for every passion.</p>
+          </div>
+          <div>
+            <h2 class="h2">Sports & Arts</h2>
+            <p>Competitive teams in football, basketball, and swimming; extensive visual and performing arts.</p>
+          </div>
+          <div>
+            <h2 class="h2">Trips & Service</h2>
+            <p>Local and international experiences that build leadership and empathy.</p>
+          </div>
+          <div>
+            <h2 class="h2">Daily Schedules</h2>
+            <ul class="list-disc pl-6 text-slate-700">
+              <li>KG: 8:00–13:00</li>
+              <li>Primary/Middle: 8:00–15:00</li>
+              <li>High School: 8:00–15:30</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
+          <h3 class="card-title mb-4">Clubs This Term</h3>
+          <div class="flex gap-2 overflow-x-auto no-scrollbar">
+            <span class="chip">?? Art Studio</span>
+            <span class="chip">?? Robotics</span>
+            <span class="chip">?? Drama</span>
+            <span class="chip">?? Journalism</span>
+            <span class="chip">?? Chess</span>
+          </div>
+          <h3 class="card-title mt-6 mb-2">Upcoming Trips</h3>
+          <ul class="list-disc pl-6 text-slate-700">
+            <li>Giza Plateau (Grade 6 History)</li>
+            <li>Red Sea Ecology Study (IB Biology)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News & Events with Calendar -->
+  <section id="news" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title">News & Events</h1>
+      <div class="grid lg:grid-cols-3 gap-10 mt-8">
+        <div class="lg:col-span-2">
+          <div class="grid md:grid-cols-2 gap-6">
+            <article class="news-card">
+              <h3 class="card-title">Parent Coffee Morning</h3>
+              <p>Join leadership for an open conversation about learning this term.</p>
+              <time class="text-xs text-slate-500">July 10, 2025</time>
+            </article>
+            <article class="news-card">
+              <h3 class="card-title">High School Theatre Night</h3>
+              <p>Student-written plays on identity and community.</p>
+              <time class="text-xs text-slate-500">July 22, 2025</time>
+            </article>
+          </div>
+        </div>
+        <div>
+          <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
+            <div class="flex items-center justify-between">
+              <h3 class="card-title">Calendar</h3>
+              <div class="flex items-center gap-2">
+                <button class="btn-icon" id="prevMonth" aria-label="Previous month">‹</button>
+                <button class="btn-icon" id="nextMonth" aria-label="Next month">›</button>
+              </div>
+            </div>
+            <div id="calendar" class="mt-4 grid grid-cols-7 gap-2 text-center text-sm"></div>
+            <ul id="eventList" class="mt-4 text-sm text-slate-700 space-y-1" aria-live="polite"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery with Lightbox -->
+  <section id="gallery" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title">Gallery</h1>
+      <p class="text-slate-600">Tap any item to preview. These are SVG placeholders—you can replace with your photos/videos.</p>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Gallery Item -->
+        <button class="gallery-item" data-caption="Campus Aerial">
+          <svg viewBox="0 0 400 260" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Campus placeholder">
+            <rect width="400" height="260" rx="16" fill="#0B3D91"/><circle cx="320" cy="60" r="20" fill="#D4AF37"/>
+            <rect x="40" y="100" width="140" height="100" fill="#ffffff" opacity=".9"/>
+            <rect x="210" y="90" width="150" height="120" fill="#e7eefc"/>
+          </svg>
+        </button>
+        <button class="gallery-item" data-caption="STEAM Lab">
+          <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="260" rx="16" fill="#D4AF37"/><rect x="40" y="60" width="320" height="140" fill="#0B3D91" rx="10"/><circle cx="200" cy="130" r="40" fill="#fff"/></svg>
+        </button>
+        <button class="gallery-item" data-caption="Sports Facilities">
+          <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="260" rx="16" fill="#eef3ff"/><rect x="60" y="50" width="280" height="160" rx="12" fill="#a3c2ff"/><circle cx="200" cy="130" r="30" fill="#0B3D91"/></svg>
+        </button>
+        <button class="gallery-item" data-caption="Arts Studio">
+          <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="260" rx="16" fill="#fff2cc"/><rect x="60" y="80" width="120" height="120" fill="#0B3D91"/><rect x="220" y="80" width="120" height="120" fill="#D4AF37"/></svg>
+        </button>
+        <button class="gallery-item" data-caption="Library">
+          <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="260" rx="16" fill="#f0f7ff"/><rect x="70" y="70" width="60" height="120" fill="#0B3D91"/><rect x="170" y="70" width="60" height="120" fill="#D4AF37"/><rect x="270" y="70" width="60" height="120" fill="#0B3D91"/></svg>
+        </button>
+        <button class="gallery-item" data-caption="Auditorium">
+          <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="260" rx="16" fill="#e6fff4"/><rect x="60" y="60" width="280" height="60" fill="#0B3D91"/><rect x="60" y="140" width="280" height="60" fill="#D4AF37"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title">Contact Us</h1>
+      <div class="grid lg:grid-cols-2 gap-10 mt-8">
+        <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
+          <h2 class="h2">Get in Touch</h2>
+          <form id="contactForm" class="mt-4" novalidate>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div><label class="label">Name</label><input class="input" name="name" required placeholder="Your name" /></div>
+              <div><label class="label">Email</label><input class="input" type="email" name="email" required placeholder="you@example.com" /></div>
+            </div>
+            <div class="mt-4"><label class="label">Message</label><textarea class="input" name="message" rows="4" required placeholder="How can we help?"></textarea></div>
+            <div class="mt-4 flex items-center gap-3">
+              <button class="btn-primary" type="submit">Send Message</button>
+              <span id="contactStatus" class="text-sm text-slate-600" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+          <div class="mt-6 text-slate-700">
+            <p><strong>Working Hours:</strong> Sun–Thu, 8:00–16:00</p>
+            <p><strong>Phone:</strong> +20 2 1234 5678</p>
+            <p><strong>Email:</strong> info@example-school-cairo.edu</p>
+            <p><strong>Address:</strong> 123 Nile Avenue, Maadi, Cairo</p>
+          </div>
+        </div>
+
+        <!-- Map Notice due to iframe sandbox -->
+        <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+          <h2 class="h2">Location</h2>
+          <div class="mt-3 rounded-xl overflow-hidden border border-slate-200 bg-white">
+            <!-- Static SVG map placeholder (cannot embed live map here) -->
+            <svg viewBox="0 0 800 400" class="w-full h-64" role="img" aria-label="Map placeholder: Cairo" xmlns="http://www.w3.org/2000/svg">
+              <rect width="800" height="400" fill="#eef3ff"/>
+              <circle cx="420" cy="180" r="10" fill="#D4AF37"/>
+              <text x="440" y="185" font-size="16" fill="#0B3D91">International School of Cairo</text>
+              <path d="M50 350 L750 350" stroke="#c7d2fe" stroke-width="6"/>
+            </svg>
+          </div>
+          <p class="text-sm text-slate-600 mt-2">Live Google Maps embedding isn’t supported here. Open in a new tab below.</p>
+          <button class="btn-gold mt-3" onclick="openMap()">Open in Google Maps</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title">FAQ</h1>
+      <div class="mt-6 space-y-4">
+        <details class="faq">
+          <summary>When do applications open?</summary>
+          <p>We accept applications year?round, subject to seat availability.</p>
+        </details>
+        <details class="faq">
+          <summary>Do you offer transportation?</summary>
+          <p>Yes, with routes across greater Cairo. Safety is our top priority.</p>
+        </details>
+        <details class="faq">
+          <summary>Is there financial aid?</summary>
+          <p>Merit and need?based support is available. Contact Admissions for guidance.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy" class="route">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <h1 class="section-title">Privacy Policy</h1>
+      <p class="text-slate-700 mt-2">We value your privacy. This policy explains how we collect and use information. We only collect what is necessary to deliver educational services and communicate with families.</p>
+      <ul class="list-disc pl-6 text-slate-700 mt-4">
+        <li>We do not sell personal data.</li>
+        <li>We retain data for as long as needed to provide services.</li>
+        <li>You may request access, correction, or deletion.</li>
+      </ul>
+      <p class="text-slate-500 text-sm mt-4">This sample is for demonstration and does not constitute legal advice.</p>
+    </div>
+  </section>
+
+  <!-- Footer with SEO tools -->
+  <footer class="bg-navy text-white mt-16">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="w-12 h-12 rounded-md bg-white/10 grid place-items-center font-extrabold tracking-wide">ISC</div>
+        <p class="mt-3 text-white/80">International School of Cairo</p>
+        <p class="text-white/60">Since 1998</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Contact</h3>
+        <p>?? +20 2 1234 5678</p>
+        <p>?? info@example-school-cairo.edu</p>
+        <p>?? Maadi, Cairo, Egypt</p>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">Quick Links</h3>
+        <ul class="space-y-1">
+          <li><a class="hover:underline" href="#admissions">Apply</a></li>
+          <li><a class="hover:underline" href="#academics">Academics</a></li>
+          <li><a class="hover:underline" href="#news">News & Events</a></li>
+          <li><a class="hover:underline" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold mb-2">SEO Tools</h3>
+        <div class="flex flex-col gap-2">
+          <button class="btn-secondary bg-white/10 text-white border-white/30 hover:bg-white/20" onclick="openRobots()">View robots.txt</button>
+          <button class="btn-secondary bg-white/10 text-white border-white/30 hover:bg-white/20" onclick="openSitemap()">View sitemap.xml</button>
+          <button class="btn-secondary bg-white/10 text-white border-white/30 hover:bg-white/20" onclick="downloadSEO()">Download SEO Titles & Descriptions</button>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10 px-4 py-4 text-center text-white/70 text-sm">
+      © <span id="year"></span> International School of Cairo. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Tour Booking Modal -->
+  <div id="tourModal" class="fixed inset-0 hidden items-center justify-center p-4 backdrop z-50">
+    <div class="w-full max-w-lg rounded-2xl bg-white shadow-xl border border-slate-200">
+      <div class="p-6">
+        <div class="flex items-center justify-between">
+          <h3 class="card-title">Book a Campus Tour</h3>
+          <button class="btn-icon" onclick="toggleTour(false)" aria-label="Close">?</button>
+        </div>
+        <form id="tourForm" class="mt-4" novalidate>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div><label class="label">Parent Name</label><input class="input" name="pname" required /></div>
+            <div><label class="label">Email</label><input class="input" type="email" name="pemail" required /></div>
+            <div><label class="label">Preferred Date</label><input class="input" type="date" name="date" required /></div>
+            <div><label class="label">Preferred Time</label><input class="input" type="time" name="time" required /></div>
+          </div>
+          <div class="mt-4"><label class="label">Notes</label><textarea class="input" rows="3" name="notes" placeholder="Any special requests..."></textarea></div>
+          <div class="mt-5 flex items-center gap-3">
+            <button class="btn-gold" type="submit">Book Tour</button>
+            <span id="tourStatus" class="text-sm text-slate-600" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 hidden items-center justify-center p-4 backdrop z-50">
+    <div class="w-full max-w-3xl rounded-2xl bg-white shadow-xl border border-slate-200 overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+        <p id="lightboxCaption" class="font-semibold text-navy">Preview</p>
+        <button class="btn-icon" onclick="toggleLightbox(false)" aria-label="Close">?</button>
+      </div>
+      <div id="lightboxContent" class="bg-slate-50 grid place-items-center p-4" style="min-height: 360px;"></div>
+    </div>
+  </div>
+
+  <!-- Styles: utility components -->
+  <style>
+    .btn-primary{ @apply inline-flex items-center justify-center px-5 py-3 rounded-lg bg-navy text-white hover:bg-navy/90 transition shadow; }
+    .btn-gold{ @apply inline-flex items-center justify-center px-5 py-3 rounded-lg bg-gold text-navy font-semibold hover:brightness-95 transition shadow; }
+    .btn-secondary{ @apply inline-flex items-center justify-center px-4 py-2 rounded-lg border border-slate-300 text-slate-800 hover:bg-slate-50 transition; }
+    .btn-icon{ @apply w-9 h-9 grid place-items-center rounded-md border border-slate-300 hover:bg-slate-50; }
+    .navlink{ @apply text-slate-700 hover:text-navy transition; }
+    .section-title{ @apply text-3xl sm:text-4xl font-extrabold text-navy; }
+    .h2{ @apply text-xl font-bold text-slate-800; }
+    .card{ @apply rounded-2xl border border-slate-200 p-6 bg-white shadow-sm; }
+    .news-card{ @apply rounded-2xl border border-slate-200 p-6 bg-white shadow-sm hover:shadow-md transition; }
+    .testimonial{ @apply rounded-2xl border border-slate-200 p-6 bg-white shadow-sm text-slate-700; }
+    .chip{ @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/30 bg-white/10 text-white hover:bg-white/20; }
+    .stat{ @apply bg-white/10 rounded-xl p-4 text-white border border-white/20; }
+    .stat-number{ @apply text-2xl font-extrabold; }
+    .stat-label{ @apply text-white/80 text-sm; }
+    .input{ @apply w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-gold focus:border-gold; }
+    .label{ @apply block text-sm font-medium text-slate-700 mb-1; }
+    .faq{ @apply rounded-xl border border-slate-200 p-4 bg-white; }
+    .teacher-card{ @apply rounded-2xl border border-slate-200 p-4 bg-white shadow-sm flex items-start gap-4; }
+    .avatar{ @apply w-16 h-16 rounded-xl overflow-hidden shrink-0; }
+    .carousel-dot{ @apply w-3 h-3 rounded-full bg-white/60 hover:bg-white transition; }
+    .active-dot{ @apply bg-white; }
+    @media (prefers-reduced-motion: reduce){
+      .route{ transition: none; }
+    }
+  </style>
+
+  <!-- Scripts -->
+  <script>
+    // Accessibility: font size controls
+    let baseSize = 100;
+    document.getElementById('increaseFont').addEventListener('click', () => {
+      baseSize = Math.min(120, baseSize + 5);
+      document.documentElement.style.fontSize = baseSize + '%';
+    });
+    document.getElementById('decreaseFont').addEventListener('click', () => {
+      baseSize = Math.max(85, baseSize - 5);
+      document.documentElement.style.fontSize = baseSize + '%';
+    });
+
+    // Language toggle (EN/AR) and RTL/LTR
+    const langBtn = document.getElementById('langToggle');
+    let currentLang = 'en';
+    function applyLanguage(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      langBtn.textContent = lang === 'ar' ? 'EN' : 'AR';
+      // Swap text content where data-en / data-ar exist
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const txt = el.getAttribute(lang === 'ar' ? 'data-ar' : 'data-en');
+        if (txt) el.textContent = txt;
+      });
+    }
+    langBtn.addEventListener('click', () => applyLanguage(currentLang === 'en' ? 'ar' : 'en'));
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Simple SPA routing via hash
+    const routes = document.querySelectorAll('.route');
+    function showRoute(hash){
+      const id = (hash || '#home').replace('#','');
+      routes.forEach(s => s.classList.remove('active'));
+      const target = document.getElementById(id);
+      if (target){ target.classList.add('active'); }
+      // Close mobile menu after navigation
+      mobileMenu.classList.add('hidden');
+      // Move focus to first heading for accessibility
+      const focusable = target.querySelector('h1, h2, [role=heading]');
+      if (focusable) focusable.setAttribute('tabindex','-1'), focusable.focus();
+    }
+    window.addEventListener('hashchange', () => showRoute(location.hash));
+    showRoute(location.hash);
+
+    // Hero variants
+    const variants = {
+      1: {
+        title: 'Nurturing Global Citizens',
+        sub: 'A world-class international school in Cairo where curiosity, character, and excellence thrive.'
+      },
+      2: {
+        title: 'Where Every Child Flourishes',
+        sub: 'Personalized learning, caring mentors, and a vibrant international community.'
+      },
+      3: {
+        title: 'Future-Ready Education in Cairo',
+        sub: 'Innovative programs, strong values, and pathways to top universities worldwide.'
+      }
+    };
+    document.querySelectorAll('.chip[data-variant]').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const v = variants[btn.dataset.variant];
+        document.getElementById('heroTitle').textContent = v.title;
+        document.getElementById('heroSub').textContent = v.sub;
+        document.querySelectorAll('.chip[data-variant]').forEach(b=>b.classList.remove('ring-2','ring-gold'));
+        btn.classList.add('ring-2','ring-gold');
+      });
+    });
+
+    // Hero Carousel
+    const slides = Array.from(document.querySelectorAll('.hero-slide'));
+    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+    let slideIndex = 0;
+    function showSlide(i){
+      slideIndex = i;
+      slides.forEach((s,idx)=> s.classList.toggle('hidden', idx !== i));
+      dots.forEach((d,idx)=> d.classList.toggle('active-dot', idx === i));
+    }
+    dots.forEach((d,idx)=> d.addEventListener('click', ()=> showSlide(idx)));
+    setInterval(()=> showSlide((slideIndex+1) % slides.length), 5000);
+
+    // Admissions form (demo)
+    document.getElementById('applicationForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()){
+        document.getElementById('applicationStatus').textContent = 'Please complete all required fields.';
+        return;
+      }
+      document.getElementById('applicationStatus').textContent = 'Thank you! Your application has been received (demo). We will contact you shortly.';
+      form.reset();
+    });
+
+    // Tour booking modal
+    const tourModal = document.getElementById('tourModal');
+    function toggleTour(state){
+      tourModal.classList.toggle('hidden', state === false);
+      tourModal.classList.toggle('flex', state !== false);
+    }
+    document.getElementById('bookTourBtn').addEventListener('click', ()=> toggleTour(true));
+    document.getElementById('tourForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const ok = e.target.checkValidity();
+      document.getElementById('tourStatus').textContent = ok ? 'Tour booked! We just emailed you (demo).' : 'Please complete all fields.';
+      if (ok) setTimeout(()=> toggleTour(false), 1000);
+    });
+
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const ok = e.target.checkValidity();
+      document.getElementById('contactStatus').textContent = ok ? 'Message sent! We will reply soon (demo).' : 'Please fill in your name, email, and message.';
+      if (ok) e.target.reset();
+    });
+
+    // Lightbox for gallery
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.getElementById('lightboxContent');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    function toggleLightbox(state){
+      lightbox.classList.toggle('hidden', state === false);
+      lightbox.classList.toggle('flex', state !== false);
+      if (state === false) lightboxContent.innerHTML = '';
+    }
+    document.querySelectorAll('.gallery-item').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const svg = btn.querySelector('svg').cloneNode(true);
+        svg.setAttribute('class','max-h-[70vh] w-auto');
+        lightboxContent.innerHTML = '';
+        lightboxContent.appendChild(svg);
+        lightboxCaption.textContent = btn.dataset.caption || 'Preview';
+        toggleLightbox(true);
+      });
+    });
+
+    // Calendar + events
+    const events = [
+      { date: '2025-07-10', title: 'Parent Coffee Morning' },
+      { date: '2025-07-22', title: 'Theatre Night' },
+      { date: '2025-08-05', title: 'New Parent Orientation' }
+    ];
+    const cal = document.getElementById('calendar');
+    const eventList = document.getElementById('eventList');
+    let viewDate = new Date();
+    function renderCalendar(){
+      cal.innerHTML = '';
+      eventList.innerHTML = '';
+      const y = viewDate.getFullYear(), m = viewDate.getMonth();
+      const first = new Date(y, m, 1);
+      const startDay = (first.getDay()+6)%7; // Monday-start
+      const daysInMonth = new Date(y, m+1, 0).getDate();
+      const header = document.createElement('div');
+      header.className = 'col-span-7 font-bold text-navy';
+      header.textContent = viewDate.toLocaleString(document.documentElement.lang, { month: 'long', year: 'numeric' });
+      cal.appendChild(header);
+      ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d=>{
+        const el = document.createElement('div');
+        el.className = 'text-slate-500';
+        el.textContent = d;
+        cal.appendChild(el);
+      });
+      for (let i=0;i<startDay;i++){ cal.appendChild(document.createElement('div')); }
+      for (let d=1; d<=daysInMonth; d++){
+        const dateStr = `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+        const has = events.filter(ev=>ev.date === dateStr);
+        const cell = document.createElement('button');
+        cell.className = 'rounded-lg border border-slate-200 bg-white py-2 hover:bg-slate-50 relative';
+        cell.innerHTML = `<span>${d}</span>${has.length?'<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-gold"></span>':''}`;
+        cell.addEventListener('click', ()=>{
+          eventList.innerHTML = has.length ? has.map(ev=>`<li>• ${ev.title} (${ev.date})</li>`).join('') : '<li>No events on this date.</li>';
+        });
+        cal.appendChild(cell);
+      }
+    }
+    document.getElementById('prevMonth').addEventListener('click', ()=>{ viewDate.setMonth(viewDate.getMonth()-1); renderCalendar(); });
+    document.getElementById('nextMonth').addEventListener('click', ()=>{ viewDate.setMonth(viewDate.getMonth()+1); renderCalendar(); });
+    renderCalendar();
+
+    // Sample "PDF" download generator (demo text file with .pdf name)
+    function downloadSample(title){
+      const content = `${title}\nInternational School of Cairo\nThis is a sample syllabus placeholder. Replace with your official PDF.`;
+      const blob = new Blob([content], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = title.replace(/\s+/g,'_') + '.pdf';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(()=> URL.revokeObjectURL(url), 1000);
+    }
+    window.downloadSample = downloadSample;
+
+    // SEO Tools: robots.txt & sitemap.xml
+    function openRobots(){
+      const robots = `User-agent: *\nAllow: /\nSitemap: https://www.example-school-cairo.edu/sitemap.xml`;
+      const blob = new Blob([robots], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    }
+    function openSitemap(){
+      const now = new Date().toISOString().split('T')[0];
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`+
+        ['','about','academics','admissions','faculty','studentlife','news','gallery','contact','faq','privacy'].map(p=>`<url><loc>https://www.example-school-cairo.edu/${p?('#'+p):''}</loc><lastmod>${now}</lastmod></url>`).join('\n')+
+        `\n</urlset>`;
+      const blob = new Blob([xml], { type: 'application/xml' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    }
+    function downloadSEO(){
+      const lines = [
+        'Home | International School of Cairo\tA leading international school in Cairo offering IB, IGCSE, and National programs.',
+        'About | International School of Cairo\tMission, vision, accreditations, and our story since 1998.',
+        'Academics | International School of Cairo\tCurricula and grade levels from Kindergarten to High School.',
+        'Admissions | International School of Cairo\tHow to apply, steps, and online application form.',
+        'Faculty | International School of Cairo\tMeet our certified teachers and leadership team.',
+        'Student Life | International School of Cairo\tActivities, clubs, sports, arts, and trips.',
+        'News & Events | International School of Cairo\tLatest updates and school calendar.',
+        'Gallery | International School of Cairo\tExplore our campus, learning, and activities.',
+        'Contact | International School of Cairo\tGet in touch, working hours, phone, and email.',
+        'FAQ | International School of Cairo\tCommon questions from families.',
+        'Privacy Policy | International School of Cairo\tHow we handle data and privacy.'
+      ].join('\n');
+      const blob = new Blob([lines], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    }
+    window.openRobots = openRobots;
+    window.openSitemap = openSitemap;
+    window.downloadSEO = downloadSEO;
+
+    // External map – open in new tab
+    function openMap(){
+      window.open('https://www.google.com/maps/search/?api=1&query=Maadi+Cairo+International+School', '_blank', 'noopener,noreferrer');
+    }
+    window.openMap = openMap;
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lazy loading simulation for heavy sections (IntersectionObserver)
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('animate-fadein');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.card,.news-card,.testimonial,.teacher-card,.gallery-item').forEach(el=> observer.observe(el));
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98321f85a02d2770',t:'MTc1ODU0NzQ3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
