@@ -1,3 +1,11 @@
+  <!-- Comments Modal -->
+  <div id="comments-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 hidden">
+    <div class="bg-white rounded shadow-glow p-6 w-full max-w-lg relative">
+      <button onclick="closeModal('comments-modal')" class="absolute top-2 right-2 text-xl">&times;</button>
+      <h3 class="font-semibold mb-1">Comments (XSS Vulnerable)</h3>
+      <ul id="comments-list" class="list-disc pl-5 mt-2"></ul>
+    </div>
+  </div>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -138,21 +146,20 @@ window.onload = function() {
 
   <!-- Header / Navigation -->
 
-  <!-- School Attack Simulation UI -->
-  <section class="max-w-2xl mx-auto my-8 p-6 bg-white rounded shadow-glow">
-    <h2 class="text-xl font-bold mb-2">School Attack Simulation</h2>
-    <div class="mb-4">
-      <label class="font-semibold">Score: <span id="score">0</span></label>
-      <button class="ml-2 px-3 py-1 bg-gold text-navy rounded" onclick="saveScore(Number(localStorage.getItem('score')||0)+10)">Add 10 Points</button>
+  <!-- Modals for Vulnerable Environment -->
+  <!-- Login Modal -->
+  <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 hidden">
+    <div class="bg-white rounded shadow-glow p-6 w-full max-w-sm relative">
+      <button onclick="closeModal('login-modal')" class="absolute top-2 right-2 text-xl">&times;</button>
+      <h2 class="text-xl font-bold mb-2">Login</h2>
+      <div id="login-section">
+        <input id="login-username" class="border p-1 mb-1 w-full" placeholder="Username" />
+        <input id="login-password" class="border p-1 mb-1 w-full" placeholder="Password" type="password" />
+        <button class="mt-2 px-2 py-1 bg-navy text-white rounded w-full" onclick="login()">Login</button>
+        <div id="login-error" class="text-red-600 text-sm mt-1"></div>
+      </div>
     </div>
-    <div class="mb-4 flex gap-2">
-      <button class="px-3 py-1 bg-navy text-white rounded" onclick="saveAction('Tried SQL Injection')">Simulate SQL Injection</button>
-      <button class="px-3 py-1 bg-navy text-white rounded" onclick="saveAction('Tried XSS Attack')">Simulate XSS Attack</button>
-      <button class="px-3 py-1 bg-navy text-white rounded" onclick="saveAction('Tried Brute Force')">Simulate Brute Force</button>
-    </div>
-    <h3 class="font-semibold mb-1">Actions Log</h3>
-    <ul id="actions-log" class="list-disc pl-5"></ul>
-  </section>
+  </div>
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3" aria-label="Home">
@@ -163,6 +170,35 @@ window.onload = function() {
         </div>
       </a>
       <nav class="hidden md:flex items-center gap-5">
+        <button class="navlink" onclick="openModal('login-modal')">Login</button>
+        <form onsubmit="addCommentFromNavbar(event)" class="flex items-center gap-2">
+          <input id="navbar-comment-input" class="border p-1 rounded text-sm" placeholder="Search" style="width:180px" />
+          <button type="submit" class="navlink">Post</button>
+        </form>
+        <button class="navlink" onclick="openModal('comments-modal')">View Comments</button>
+<script>
+function addCommentFromNavbar(e) {
+  e.preventDefault();
+  const comment = document.getElementById('navbar-comment-input').value;
+  if (!comment) return;
+  let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+  comments.push({ user: localStorage.getItem('currentUser') || 'guest', text: comment });
+  localStorage.setItem('comments', JSON.stringify(comments));
+  document.getElementById('navbar-comment-input').value = '';
+  renderComments();
+}
+function renderComments() {
+  let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+  const list = document.getElementById('comments-list');
+  if (list) {
+    list.innerHTML = comments.map(c => `<li><b>${c.user}:</b> ${c.text}</li>`).join(''); // XSS vulnerable
+  }
+}
+window.onload = function() {
+  renderComments();
+};
+</script>
+        <button class="navlink" onclick="openPortal()">Portal</button>
         <a class="navlink" href="#home" data-en="Home" data-ar="????????">Home</a>
         <a class="navlink" href="#about" data-en="About" data-ar="?? ???">About</a>
         <a class="navlink" href="#academics" data-en="Academics" data-ar="???????????">Academics</a>
@@ -171,7 +207,6 @@ window.onload = function() {
         <a class="navlink" href="#studentlife" data-en="Student Life" data-ar="???? ??????">Student Life</a>
         <a class="navlink" href="#news" data-en="News & Events" data-ar="??????? ??????????">News & Events</a>
         <a class="navlink" href="#gallery" data-en="Gallery" data-ar="??????">Gallery</a>
-        <a class="navlink" href="#contact" data-en="Contact" data-ar="???? ???">Contact</a>
         <a class="navlink" href="#faq" data-en="FAQ" data-ar="??????? ???????">FAQ</a>
         <a class="navlink" href="#privacy" data-en="Privacy" data-ar="????????">Privacy</a>
       </nav>
@@ -560,46 +595,79 @@ window.onload = function() {
     </div>
   </section>
 
-  <!-- Faculty -->
-  <section id="faculty" class="route">
-    <div class="max-w-7xl mx-auto px-4 py-16">
-      <h1 class="section-title">Faculty</h1>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        <!-- Teacher Card with SVG avatar -->
-        <div class="teacher-card">
-          <div class="avatar" aria-hidden="true">
-            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Teacher photo placeholder">
-              <rect width="100" height="100" rx="12" fill="#0B3D91"/>
-              <circle cx="50" cy="40" r="18" fill="#D4AF37"/>
-              <rect x="25" y="62" width="50" height="26" rx="8" fill="#D4AF37"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-bold text-navy text-lg">Ms. Sara Youssef</h3>
-            <p class="text-slate-600">Head of Primary � PGCE</p>
-            <p class="text-sm text-slate-600 mt-2">15 years of experience in inquiry-based learning and literacy.</p>
-          </div>
-        </div>
-        <div class="teacher-card">
-          <div class="avatar" aria-hidden="true">
-            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="12" fill="#0B3D91"/><circle cx="50" cy="40" r="18" fill="#D4AF37"/><rect x="25" y="62" width="50" height="26" rx="8" fill="#D4AF37"/></svg>
-          </div>
-          <div>
-            <h3 class="font-bold text-navy text-lg">Mr. Omar Khaled</h3>
-            <p class="text-slate-600">IB DP Physics � M.Ed</p>
-            <p class="text-sm text-slate-600 mt-2">Passionate about labs, data, and student-led investigations.</p>
-          </div>
-        </div>
-        <div class="teacher-card">
-          <div class="avatar" aria-hidden="true">
-            <svg viewBox="0 0 100 100" class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="12" fill="#0B3D91"/><circle cx="50" cy="40" r="18" fill="#D4AF37"/><rect x="25" y="62" width="50" height="26" rx="8" fill="#D4AF37"/></svg>
-          </div>
-          <div>
-            <h3 class="font-bold text-navy text-lg">Mrs. Laila Hassan</h3>
-            <p class="text-slate-600">IGCSE English � CELTA</p>
-            <p class="text-sm text-slate-600 mt-2">Differentiated instruction and debate coaching.</p>
-          </div>
-        </div>
+  <script>
+  // --- Modal Logic ---
+  function openModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+  }
+  function openPortal() {
+    if (localStorage.getItem('currentUser')) {
+      showPortal();
+      openModal('portal-modal');
+    } else {
+      openModal('login-modal');
+    }
+  }
+  // --- Vulnerable Environment Logic ---
+  // Fake users (insecurely stored in localStorage)
+  if (!localStorage.getItem('users')) {
+    localStorage.setItem('users', JSON.stringify([
+      { username: 'admin', password: 'admin123' },
+      { username: 'student', password: 'password' }
+    ]));
+  }
+
+  function login() {
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+    const users = JSON.parse(localStorage.getItem('users'));
+    const user = users.find(u => u.username === username && u.password === password);
+    if (user) {
+      localStorage.setItem('currentUser', username);
+      closeModal('login-modal');
+      showPortal();
+      openModal('portal-modal');
+    } else {
+      document.getElementById('login-error').textContent = 'Invalid credentials!';
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem('currentUser');
+    closeModal('portal-modal');
+    document.getElementById('login-username').value = '';
+    document.getElementById('login-password').value = '';
+    document.getElementById('login-error').textContent = '';
+  }
+
+  function showPortal() {
+    document.getElementById('current-user').textContent = localStorage.getItem('currentUser');
+    renderComments();
+  }
+
+  function addComment() {
+    const comment = document.getElementById('comment-input').value;
+    if (!comment) return;
+    let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+    comments.push({ user: localStorage.getItem('currentUser'), text: comment });
+    localStorage.setItem('comments', JSON.stringify(comments));
+    document.getElementById('comment-input').value = '';
+    renderComments();
+  }
+
+  function renderComments() {
+    let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+    const list = document.getElementById('comments-list');
+    list.innerHTML = comments.map(c => `<li><b>${c.user}:</b> ${c.text}</li>`).join(''); // XSS vulnerable
+  }
+
+  window.onload = function() {
+    // No auto-open on load
+  };
+  </script>
       </div>
     </div>
   </section>
