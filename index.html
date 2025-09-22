@@ -79,6 +79,46 @@
     ]
   }
   </script>
+<script>
+// Simple localStorage-based data storage for simulation
+// Save a user action
+function saveAction(action) {
+  let actions = JSON.parse(localStorage.getItem('actions') || '[]');
+  actions.push({ action, timestamp: new Date().toISOString() });
+  localStorage.setItem('actions', JSON.stringify(actions));
+  displayActions();
+}
+
+// Save a user score
+function saveScore(score) {
+  localStorage.setItem('score', score);
+  displayScore();
+}
+
+// Display actions
+function displayActions() {
+  let actions = JSON.parse(localStorage.getItem('actions') || '[]');
+  const actionsDiv = document.getElementById('actions-log');
+  if (actionsDiv) {
+    actionsDiv.innerHTML = actions.map(a => `<li>${a.timestamp}: ${a.action}</li>`).join('');
+  }
+}
+
+// Display score
+function displayScore() {
+  const score = localStorage.getItem('score') || 0;
+  const scoreDiv = document.getElementById('score');
+  if (scoreDiv) {
+    scoreDiv.textContent = score;
+  }
+}
+
+// Initialize on page load
+window.onload = function() {
+  displayActions();
+  displayScore();
+};
+</script>
 </head>
 <body class="bg-gradient-to-b from-navy/5 via-white to-white text-slate-800 font-sans selection:bg-gold/30 selection:text-navy">
   <!-- Top Bar -->
@@ -97,6 +137,22 @@
   </div>
 
   <!-- Header / Navigation -->
+
+  <!-- School Attack Simulation UI -->
+  <section class="max-w-2xl mx-auto my-8 p-6 bg-white rounded shadow-glow">
+    <h2 class="text-xl font-bold mb-2">School Attack Simulation</h2>
+    <div class="mb-4">
+      <label class="font-semibold">Score: <span id="score">0</span></label>
+      <button class="ml-2 px-3 py-1 bg-gold text-navy rounded" onclick="saveScore(Number(localStorage.getItem('score')||0)+10)">Add 10 Points</button>
+    </div>
+    <div class="mb-4 flex gap-2">
+      <button class="px-3 py-1 bg-navy text-white rounded" onclick="saveAction('Tried SQL Injection')">Simulate SQL Injection</button>
+      <button class="px-3 py-1 bg-navy text-white rounded" onclick="saveAction('Tried XSS Attack')">Simulate XSS Attack</button>
+      <button class="px-3 py-1 bg-navy text-white rounded" onclick="saveAction('Tried Brute Force')">Simulate Brute Force</button>
+    </div>
+    <h3 class="font-semibold mb-1">Actions Log</h3>
+    <ul id="actions-log" class="list-disc pl-5"></ul>
+  </section>
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3" aria-label="Home">
@@ -165,7 +221,7 @@
         <div class="grid lg:grid-cols-2 gap-10 items-center">
           <div class="text-white">
             <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 text-sm mb-4">
-              <span>??</span><span data-en="IB • IGCSE • National" data-ar="?????????? ??????? • IGCSE • ?????? ??????">IB • IGCSE • National</span>
+              <span>??</span><span data-en="IB ï¿½ IGCSE ï¿½ National" data-ar="?????????? ??????? ï¿½ IGCSE ï¿½ ?????? ??????">IB ï¿½ IGCSE ï¿½ National</span>
             </div>
             <h1 id="heroTitle" class="text-4xl sm:text-5xl font-extrabold leading-tight">Nurturing Global Citizens</h1>
             <p id="heroSub" class="mt-4 text-lg sm:text-xl text-white/90 max-w-xl">A world-class international school in Cairo where curiosity, character, and excellence thrive.</p>
@@ -308,16 +364,16 @@
       <h2 class="section-title" data-en="What Parents Say" data-ar="???? ???? ???????">What Parents Say</h2>
       <div class="mt-8 grid lg:grid-cols-3 gap-6">
         <blockquote class="testimonial">
-          <p>Our daughter is thriving—confident, curious, and supported by caring teachers.</p>
-          <footer>— Parent of Grade 5 student</footer>
+          <p>Our daughter is thrivingï¿½confident, curious, and supported by caring teachers.</p>
+          <footer>ï¿½ Parent of Grade 5 student</footer>
         </blockquote>
         <blockquote class="testimonial">
           <p>The school blends academics with character education beautifully.</p>
-          <footer>— Parent of Grade 9 student</footer>
+          <footer>ï¿½ Parent of Grade 9 student</footer>
         </blockquote>
         <blockquote class="testimonial">
           <p>We love the international community and safe environment.</p>
-          <footer>— Parent of KG2 student</footer>
+          <footer>ï¿½ Parent of KG2 student</footer>
         </blockquote>
       </div>
     </section>
@@ -335,7 +391,7 @@
           </div>
           <div>
             <h2 class="h2" data-en="Vision" data-ar="??????">Vision</h2>
-            <p data-en="To be Cairo’s most trusted international school community—innovative, inclusive, and future-ready." data-ar="?? ???? ??????? ??????? ?????? ?????? ??? ?? ??????? — ??????? ??????? ???????? ????????.">To be Cairo’s most trusted international school community—innovative, inclusive, and future-ready.</p>
+            <p data-en="To be Cairoï¿½s most trusted international school communityï¿½innovative, inclusive, and future-ready." data-ar="?? ???? ??????? ??????? ?????? ?????? ??? ?? ??????? ï¿½ ??????? ??????? ???????? ????????.">To be Cairoï¿½s most trusted international school communityï¿½innovative, inclusive, and future-ready.</p>
           </div>
           <div>
             <h2 class="h2" data-en="History" data-ar="???????">History</h2>
@@ -452,7 +508,7 @@
           </div>
         </div>
 
-        <!-- Application Form (Fully working demo – local only) -->
+        <!-- Application Form (Fully working demo ï¿½ local only) -->
         <div class="rounded-2xl border border-slate-200 p-6 bg-white shadow-sm">
           <h2 class="h2 mb-4">Online Application Form (Demo)</h2>
           <form id="applicationForm" novalidate>
@@ -520,7 +576,7 @@
           </div>
           <div>
             <h3 class="font-bold text-navy text-lg">Ms. Sara Youssef</h3>
-            <p class="text-slate-600">Head of Primary • PGCE</p>
+            <p class="text-slate-600">Head of Primary ï¿½ PGCE</p>
             <p class="text-sm text-slate-600 mt-2">15 years of experience in inquiry-based learning and literacy.</p>
           </div>
         </div>
@@ -530,7 +586,7 @@
           </div>
           <div>
             <h3 class="font-bold text-navy text-lg">Mr. Omar Khaled</h3>
-            <p class="text-slate-600">IB DP Physics • M.Ed</p>
+            <p class="text-slate-600">IB DP Physics ï¿½ M.Ed</p>
             <p class="text-sm text-slate-600 mt-2">Passionate about labs, data, and student-led investigations.</p>
           </div>
         </div>
@@ -540,7 +596,7 @@
           </div>
           <div>
             <h3 class="font-bold text-navy text-lg">Mrs. Laila Hassan</h3>
-            <p class="text-slate-600">IGCSE English • CELTA</p>
+            <p class="text-slate-600">IGCSE English ï¿½ CELTA</p>
             <p class="text-sm text-slate-600 mt-2">Differentiated instruction and debate coaching.</p>
           </div>
         </div>
@@ -569,9 +625,9 @@
           <div>
             <h2 class="h2">Daily Schedules</h2>
             <ul class="list-disc pl-6 text-slate-700">
-              <li>KG: 8:00–13:00</li>
-              <li>Primary/Middle: 8:00–15:00</li>
-              <li>High School: 8:00–15:30</li>
+              <li>KG: 8:00ï¿½13:00</li>
+              <li>Primary/Middle: 8:00ï¿½15:00</li>
+              <li>High School: 8:00ï¿½15:30</li>
             </ul>
           </div>
         </div>
@@ -618,8 +674,8 @@
             <div class="flex items-center justify-between">
               <h3 class="card-title">Calendar</h3>
               <div class="flex items-center gap-2">
-                <button class="btn-icon" id="prevMonth" aria-label="Previous month">‹</button>
-                <button class="btn-icon" id="nextMonth" aria-label="Next month">›</button>
+                <button class="btn-icon" id="prevMonth" aria-label="Previous month">ï¿½</button>
+                <button class="btn-icon" id="nextMonth" aria-label="Next month">ï¿½</button>
               </div>
             </div>
             <div id="calendar" class="mt-4 grid grid-cols-7 gap-2 text-center text-sm"></div>
@@ -634,7 +690,7 @@
   <section id="gallery" class="route">
     <div class="max-w-7xl mx-auto px-4 py-16">
       <h1 class="section-title">Gallery</h1>
-      <p class="text-slate-600">Tap any item to preview. These are SVG placeholders—you can replace with your photos/videos.</p>
+      <p class="text-slate-600">Tap any item to preview. These are SVG placeholdersï¿½you can replace with your photos/videos.</p>
       <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Gallery Item -->
         <button class="gallery-item" data-caption="Campus Aerial">
@@ -682,7 +738,7 @@
             </div>
           </form>
           <div class="mt-6 text-slate-700">
-            <p><strong>Working Hours:</strong> Sun–Thu, 8:00–16:00</p>
+            <p><strong>Working Hours:</strong> Sunï¿½Thu, 8:00ï¿½16:00</p>
             <p><strong>Phone:</strong> +20 2 1234 5678</p>
             <p><strong>Email:</strong> info@example-school-cairo.edu</p>
             <p><strong>Address:</strong> 123 Nile Avenue, Maadi, Cairo</p>
@@ -701,7 +757,7 @@
               <path d="M50 350 L750 350" stroke="#c7d2fe" stroke-width="6"/>
             </svg>
           </div>
-          <p class="text-sm text-slate-600 mt-2">Live Google Maps embedding isn’t supported here. Open in a new tab below.</p>
+          <p class="text-sm text-slate-600 mt-2">Live Google Maps embedding isnï¿½t supported here. Open in a new tab below.</p>
           <button class="btn-gold mt-3" onclick="openMap()">Open in Google Maps</button>
         </div>
       </div>
@@ -776,7 +832,7 @@
       </div>
     </div>
     <div class="border-t border-white/10 px-4 py-4 text-center text-white/70 text-sm">
-      © <span id="year"></span> International School of Cairo. All rights reserved.
+      ï¿½ <span id="year"></span> International School of Cairo. All rights reserved.
     </div>
   </footer>
 
@@ -1019,7 +1075,7 @@
         cell.className = 'rounded-lg border border-slate-200 bg-white py-2 hover:bg-slate-50 relative';
         cell.innerHTML = `<span>${d}</span>${has.length?'<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-gold"></span>':''}`;
         cell.addEventListener('click', ()=>{
-          eventList.innerHTML = has.length ? has.map(ev=>`<li>• ${ev.title} (${ev.date})</li>`).join('') : '<li>No events on this date.</li>';
+          eventList.innerHTML = has.length ? has.map(ev=>`<li>ï¿½ ${ev.title} (${ev.date})</li>`).join('') : '<li>No events on this date.</li>';
         });
         cal.appendChild(cell);
       }
@@ -1078,7 +1134,7 @@
     window.openSitemap = openSitemap;
     window.downloadSEO = downloadSEO;
 
-    // External map – open in new tab
+    // External map ï¿½ open in new tab
     function openMap(){
       window.open('https://www.google.com/maps/search/?api=1&query=Maadi+Cairo+International+School', '_blank', 'noopener,noreferrer');
     }
