@@ -1,11 +1,10 @@
-# populate_localstorage.py
+
 """
 This script generates a JavaScript snippet to populate localStorage with sample users and comments for the school-attack environment.
 Run this script, then copy and paste the output into your browser's console on the site.
 """
 import json
 
-# Sample users and comments
 data = {
     "users": [
         {"username": "admin", "password": "admin123"},
